@@ -157,7 +157,7 @@ level_1 = [
 "XX   XXXXXXXXXXXXX  XXXXX",
 "XX    YXXXXXXXXXXX  XXXXX",
 "XX          XXXX        X",
-"XXXX                   X",
+"XXXX                    X",
 "XXXXXXXXXXXXXXXXXXXXXXXXX"
 ]
 
