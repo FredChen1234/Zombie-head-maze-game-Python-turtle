@@ -15,7 +15,7 @@ It should be like this:
 
 ![Screen 1](https://raw.githubusercontent.com/FredChen1234/Zombie-head-maze-game-Python-turtle/master/image/example.png)
 
-##Updates 
+## Updates 
  I am a kid so I dont have that much time to update the game.
  
  I'll try to update monthly or weekly.
