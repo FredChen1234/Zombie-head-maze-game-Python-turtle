@@ -11,4 +11,4 @@ you can <a href="www.pygame.org">click here</a> to go to pygame.org
 Second make sure you put all the two files and python together.
 Third run the python file.
 It should be like this:
-<img src="C:\fred2\html\img1\Maze game Fails tryout\capture.PNG"/>
+
