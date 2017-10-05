@@ -11,4 +11,6 @@ you can <a href="www.pygame.org">click here</a> to go to pygame.org
 Second make sure you put all the two files and python together.
 Third run the python file.
 It should be like this:
-![Screen 1](http://i.imgur.com/3MzfmbT.jpg)
+
+
+![Screen 1](https://raw.githubusercontent.com/FredChen1234/Zombie-head-maze-game-Python-turtle/master/image/example.png)
