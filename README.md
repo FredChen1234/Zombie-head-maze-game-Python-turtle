@@ -1,10 +1,10 @@
 # Zombie-head-maze-game-Python-turtle
-A maze game using only python turtle. Pygame for music!!!
+A maze game using only python turtle. Pygame for music!!!<br>
 This might only work in python 3.x
 ## TODO
-1.You need to download Pygame by openning your cmd and type in: python3.6 -m pip install pygame or you can <a href="www.pygame.org">click here</a> to go to pygame.org
-2. make sure you put all the two files and python together.
-3.run the python file(maze.py).
+1.You need to download Pygame by openning your cmd and type in: python3.6 -m pip install pygame or you can <a href="www.pygame.org">click here</a> to go to pygame.org<br>
+2. make sure you put all the two files and python together.<br>
+3.run the python file(maze.py).<br>
 It should be like this:
 
 ![Screen 1](https://raw.githubusercontent.com/FredChen1234/Zombie-head-maze-game-Python-turtle/master/image/example.png)
