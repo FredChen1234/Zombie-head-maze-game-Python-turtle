@@ -89,47 +89,47 @@ class Treasure(turtle.Turtle):
                 self.goto(2000, 2000)
                 self.hideturtle()
 
-class Enemy(turtle.Turtle):
-        def __init__(self,x,y):
-                turtle.Turtle.__init__(self)
-                self.shape("square")
-                self.color("purple")
-                self.penup()
-                self.speed(0)
-                self.gold = 25
-                self.goto(x, y)
-                self.direction= random.choice(["up","down","left","right"])
+# class Enemy(turtle.Turtle):
+#         def __init__(self,x,y):
+#                 turtle.Turtle.__init__(self)
+#                 self.shape("square")
+#                 self.color("purple")
+#                 self.penup()
+#                 self.speed(0)
+#                 self.gold = 25
+#                 self.goto(x, y)
+#                 self.direction= random.choice(["up","down","left","right"])
 
-        def move(self):
-                if self.direction =="up":
-                        dx = 0
-                        dy= 24
-                elif self.direction =="down":
-                        dx = 0
-                        dy = -24
-                elif self.direction =="right":
-                        dx = -24
-                        dy = 0
-                elif self.direction == "left":
-                        dx= 24
-                        dy= 0
-                else:
-                        dx = 0
-                        dy = 0
+#         def move(self):
+#                 if self.direction =="up":
+#                         dx = 0
+#                         dy= 24
+#                 elif self.direction =="down":
+#                         dx = 0
+#                         dy = -24
+#                 elif self.direction =="right":
+#                         dx = -24
+#                         dy = 0
+#                 elif self.direction == "left":
+#                         dx= 24
+#                         dy= 0
+#                 else:
+#                         dx = 0
+#                         dy = 0
 
-                move_to_x = self.xcor() + dx
-                move_to_y = self.ycor() +dy
+#                 move_to_x = self.xcor() + dx
+#                 move_to_y = self.ycor() +dy
 
-                if(move_to_x, move_to_y) not in walls:
-                        self.goto(move_to_x,move_to_y)
-                else:
-                        self.direction = random.choice()["up","down","left","right"]
+#                 if(move_to_x, move_to_y) not in walls:
+#                         self.goto(move_to_x,move_to_y)
+#                 else:
+#                         self.direction = random.choice()["up","down","left","right"]
 
-                turtle.ontimer(self.move, t=random.randint (100,300))
+#                 turtle.ontimer(self.move, t=random.randint (100,300))
 
-        def destroy(self):
-                self.goto(2000,2000)
-                self.hideturtle()
+#         def destroy(self):
+#                 self.goto(2000,2000)
+#                 self.hideturtle()
 
 level = [""]
 
@@ -194,18 +194,33 @@ def Starttime():
 
         struct = localtime(start_timer)
 
-        print("\nRespawn in 20 seconds",strftime("%X",struct))
+        turtle.onscreenclick(None)
+        turtle.speed(0)
+        turtle.penup()
+        turtle.goto(10,300)
+        turtle.color("red")
+        turtle.write("You got trapped!!! It's a fake gold!!!",align="left", font=(10))
+        turtle.goto(-50,300)
+        turtle.write("\nRespawn in 20 seconds",align="right",font=(0.0000001))
+        turtle.goto(2000,2000)
+
 
         i = 20        
         while i> -1:
-                print(i)
                 i-=1
+                Fred = turtle.Turtle()
+                Fred.clear()
+                Fred.goto(0,0)
+                Fred.write(i,font=(0.0000001))
+                Fred.penup()
+                Fred.goto(2000,2000)
                 sleep(1)
                 wn.update()
         end_timer = time()
 
         pygame.mixer.music.load("./Music/SoundTest.wav")
-        pygame.mixer.music.play()
+        pygame.mixer.music.play(-1)
+        turtle.clear()
 
         
 
@@ -229,10 +244,16 @@ while True:
                 if player.is_collision(treasure):
                         player.gold += treasure.gold
                         if player.gold == 100:
-                                print("haha it's a fake gold,into laggy mode muahhahahahah,dont worry it'll end after count down")
                                 Starttime()
+                        if player.gold == 300:
+                                turtle.clear()
+                                turtle.goto(-50,300)
+                                turtle.write("The End( now you can play on the Map!!!Have a challange with your friends)",align="right",font=(0.0000001))
                         else:
-                                print("Player Gold:{}".format(player.gold))
+                                turtle.clear()
+                                turtle.goto(-50,300)
+                                turtle.write("Player Gold:{}".format(player.gold),align="right",font=(0.0000001))
+                                turtle.goto(2000,2000)
                                 treasure.destroy()
                                 treasures.remove(treasure)
                                 wn.update()
