@@ -22,7 +22,7 @@ class  Pen(turtle.Turtle):
                 self.shape("./image/block.gif")
                 self.color("white")
                 self.penup()
-                self.speed(0)
+                self.speed(3)
 
 class Player(turtle.Turtle):
         def __init__(self):
@@ -135,16 +135,16 @@ level = [""]
 
 level_1 = [
 "XXXXXXXXXXXXXXXXXXXXXXXXX",
-"XP XXXXXXX          XXXXX",
+"X XXXXXXX           XXXXX",
 "X  XXXXXXX  XXXXXX  XXXXX",
-"X       XX  XXXXXX  XXXXX",
-"X       XX  XXX        XX",
-"XXXXXX  XX  XXX        XX",
-"XXXXXX  XX  XXXXXX  XXXXX",
-"XXXXXX  XX    XXXX  XXXXX",
-"X  XXX        XXXX  XXXXX",
-"X  XXX  XXXXXXXXXXXXXXXXX",
-"X         XXXXXXXXXXXXXXX",
+"X           XXXXXX  XXXXX",
+"X       XX  XXX XXX    XX",
+"XX XXXXXXX  XXX    XX  XX",
+"XX XXX  XX  XXXXXX    XXX",
+"XX      XX    XXXX  XXXXX",
+"XXXXXX  XX    XXXXP XXXXX",
+"XX      XXXXXXXXXXXXXXXXX",
+"X  XXXXXXXXXXXXXXXXXXXXXX",
 "X                XXXXXXXX",
 "XXXXXXXXXXXX   TXXX     X",
 "XXXXXXXXXXXXXXX  XXXXX  X",
@@ -194,12 +194,13 @@ def Starttime():
 
         struct = localtime(start_timer)
 
+
         turtle.onscreenclick(None)
         turtle.speed(0)
         turtle.penup()
         turtle.goto(10,300)
         turtle.color("red")
-        turtle.write("You got trapped!!! It's a fake gold!!!",align="left", font=(10))
+        turtle.write(" It's a fake gold!!! In to laggy mode!!!",align="left", font=(10))
         turtle.goto(-50,300)
         turtle.write("\nRespawn in 20 seconds",align="right",font=(0.0000001))
         turtle.goto(2000,2000)
@@ -208,16 +209,16 @@ def Starttime():
         i = 20        
         while i> -1:
                 i-=1
-                Fred = turtle.Turtle()
-                Fred.clear()
-                Fred.goto(0,0)
-                Fred.write(i,font=(0.0000001))
-                Fred.penup()
-                Fred.goto(2000,2000)
+                x = turtle.Turtle()
+                x.pencolor= ("blue")
+                x.goto(0,0)
+                x.write(i+1,font=(0.0000001))
+                x.penup()
+                x.goto(2000,2000)
                 sleep(1)
                 wn.update()
+                x.clear()
         end_timer = time()
-
         pygame.mixer.music.load("./Music/SoundTest.wav")
         pygame.mixer.music.play(-1)
         turtle.clear()
@@ -237,25 +238,24 @@ turtle.onkey(player.go_right,"Right")
 turtle.onkey(player.go_up,"Up")
 turtle.onkey(player.go_down,"Down")
 
+Gold_left = 3
 wn.tracer(0)
 
 while True:
         for treasure in treasures:
                 if player.is_collision(treasure):
                         player.gold += treasure.gold
+                        Gold_left = Gold_left-1
+                        print(Gold_left)
                         if player.gold == 100:
-                                Starttime()
-                        if player.gold == 300:
-                                turtle.clear()
-                                turtle.goto(-50,300)
-                                turtle.write("The End( now you can play on the Map!!!Have a challange with your friends)",align="right",font=(0.0000001))
+                            Starttime()
                         else:
-                                turtle.clear()
-                                turtle.goto(-50,300)
-                                turtle.write("Player Gold:{}".format(player.gold),align="right",font=(0.0000001))
-                                turtle.goto(2000,2000)
-                                treasure.destroy()
-                                treasures.remove(treasure)
-                                wn.update()
+                            turtle.clear()
+                            turtle.goto(-50,300)
+                            turtle.write("Player Gold:{}".format(player.gold),align="right",font=(0.0000001))
+                            turtle.goto(2000,2000)
+                            treasure.destroy()
+                            # treasures.remove(Treasure)
+                            wn.update()
 
                 wn.update()
